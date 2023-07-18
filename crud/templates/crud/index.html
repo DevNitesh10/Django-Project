@@ -1,1 +1,5 @@
-<h1>This is from templates!</h1>
+<h1>Welcome to my Blog!</h1>
+{% for blog in blogs %}
+<h2>{{blog.title}}</h2>
+<h3>{{blog.description}}</h3>
+{% endfor %}
