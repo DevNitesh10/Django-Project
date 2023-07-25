@@ -37,3 +37,16 @@ def contacts(request):
         )
         contacts.save()
     return render(request, "crud/contactus.html")
+
+def delete(request, id):
+    blog = Blog.objects.get(id=id)
+    blog.delete()
+    return redirect("home")
+
+def update(request, id):
+    blog =  Blog.objects.get(id=id)
+    form = BlogForm(request.POST or None, instance=blog)
+    if (form.is_valid()):
+        form.save()
+        return redirect("home")
+    return render(request, "crud/create.html", {"form" : form})

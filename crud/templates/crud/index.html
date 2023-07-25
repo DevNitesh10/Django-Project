@@ -1,10 +1,17 @@
+<!-- Home all Blogs -->
 <h1>Welcome to my Blog!</h1>
 {% for blog in blogs %}
+<a href="{%url 'partData' blog.id%}">
 <h2>{{blog.title}}</h2>
 <h3>{{blog.description}}</h3>
+</a>
 {% endfor %}
 
+<!-- For Particular Blogs  -->
 {% if blog %}
 <h1>{{blog.title}}</h1>
 <h3>{{blog.description}}</h3>
+<a href="{%url 'delete' blog.id%}" type="submit">Delete</a>
+<a href="{%url 'update' blog.id%}" type="submit">Update</a>
+<!-- <button type="submit">Delete</button> -->
 {% endif %}
