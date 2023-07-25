@@ -6,7 +6,7 @@ from .forms import BlogForm
 # Create your views here.
 def index(request):
     blog = Blog.objects.all()
-    return render(request,"crud/index.html", {"blogs" : blog})
+    return render(request,"home.html", {"blogs" : blog})
 
 def about(request):
     return render(request, "crud/about.html")
